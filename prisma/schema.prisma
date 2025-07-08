@@ -1,0 +1,57 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  households HouseholdMember[]
+  expenses  Expense[]
+  splits    Split[]
+}
+
+model Household {
+  id      String   @id @default(uuid())
+  name    String
+  members HouseholdMember[]
+  expenses Expense[]
+}
+
+model HouseholdMember {
+  id           String   @id @default(uuid())
+  user         User     @relation(fields: [userId], references: [id])
+  userId       String
+  household    Household @relation(fields: [householdId], references: [id])
+  householdId  String
+}
+
+model Expense {
+  id          String   @id @default(uuid())
+  description String
+  amount      Float
+  paidBy      User     @relation(fields: [paidById], references: [id])
+  paidById    String
+  household   Household @relation(fields: [householdId], references: [id])
+  householdId String
+  splits      Split[]
+  createdAt   DateTime @default(now())
+}
+
+model Split {
+  id        String   @id @default(uuid())
+  expense   Expense  @relation(fields: [expenseId], references: [id])
+  expenseId String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  amount    Float
+  isPaid    Boolean  @default(false)
+}

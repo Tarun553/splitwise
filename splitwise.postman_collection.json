@@ -1,0 +1,383 @@
+{
+    "info": {
+        "name": "Splitwise API",
+        "description": "Collection for testing Splitwise API endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "User Management",
+            "item": [
+                {
+                    "name": "Register User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"securepassword\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/user/register",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "user", "register"]
+                        }
+                    }
+                },
+                {
+                    "name": "Login User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"securepassword\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/user/login",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "user", "login"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": \"{{userId}}\",\n    \"name\": \"John Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"password\": \"newsecurepassword\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/user/update",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "user", "update"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": \"{{userId}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/user/delete",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "user", "delete"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Household Management",
+            "item": [
+                {
+                    "name": "Create Household",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"My Home\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/household",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "household"]
+                        }
+                    }
+                },
+                {
+                    "name": "List Households",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/household",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "household"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Household",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"householdId\": \"{{householdId}}\",\n    \"name\": \"New Home Name\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/household/update",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "household", "update"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Household",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"householdId\": \"{{householdId}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/household/delete",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "household", "delete"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Expense Management",
+            "item": [
+                {
+                    "name": "Create Expense",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"description\": \"Groceries\",\n    \"amount\": 1000,\n    \"paidById\": \"{{userId}}\",\n    \"householdId\": \"{{householdId}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/expense/create",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "expense", "create"]
+                        }
+                    }
+                },
+                {
+                    "name": "List Expenses",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/expense/list?householdId={{householdId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "expense", "list"],
+                            "query": [
+                                {
+                                    "key": "householdId",
+                                    "value": "{{householdId}}"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Expense",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"expenseId\": \"{{expenseId}}\",\n    \"description\": \"Weekly Groceries\",\n    \"amount\": 1500\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/expense/update",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "expense", "update"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Expense",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"expenseId\": \"{{expenseId}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/expense/delete",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "expense", "delete"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Split Management",
+            "item": [
+                {
+                    "name": "Create Split",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"expenseId\": \"{{expenseId}}\",\n    \"userId\": \"{{userId}}\",\n    \"amount\": 500\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/split/create",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "split", "create"]
+                        }
+                    }
+                },
+                {
+                    "name": "Mark Split as Paid",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"splitId\": \"{{splitId}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/split/mark-paid",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "split", "mark-paid"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Split",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"splitId\": \"{{splitId}}\",\n    \"amount\": 600\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/split/update",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "split", "update"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Split",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"splitId\": \"{{splitId}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/split/delete",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "split", "delete"]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
