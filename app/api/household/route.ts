@@ -27,11 +27,25 @@ export async function POST(req: Request) {
 
 export async function GET() {
     try {
-        const households = await prisma.household.findMany();
+        const households = await prisma.household.findMany({
+            include: {
+                members: {
+                    include: {
+                        user: true
+                    }
+                },
+                expenses: true
+            }
+        });
         return NextResponse.json(households);
     } catch (error) {
         console.error('Error fetching households:', error);
-        return NextResponse.json({ error: "Failed to fetch households" }, { status: 500 });
+        return NextResponse.json(
+            { error: "Failed to fetch households", details: error.message },
+            { status: 500 }
+        );
+    } finally {
+        await prisma.$disconnect();
     }
 }
 
