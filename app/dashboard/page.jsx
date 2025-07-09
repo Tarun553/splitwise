@@ -84,12 +84,12 @@ export default function Dashboard() {
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg">{household.name}</CardTitle>
                   <CardDescription className="line-clamp-2">
-                    {household.description || 'No description'}
+                    {household.description || 'event'}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-sm text-muted-foreground">
-                    {household.memberCount || 0} members • {household.expenseCount || 0} expenses
+                    {household.members.length || 0} members • {household.expenses.length || 0} expenses
                   </div>
                 </CardContent>
               </Card>

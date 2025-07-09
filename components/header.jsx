@@ -13,21 +13,21 @@ const Header = () => {
       <nav className="ml-auto flex gap-4 sm:gap-6">
         <Link
           className="text-sm font-medium hover:text-primary transition-colors"
-          href="/features"
+          href="#features"
         >
           Features
         </Link>
         <Link
           className="text-sm font-medium hover:text-primary transition-colors"
-          href="/how-it-works"
+          href="#how-it-works"
         >
           How it Works
         </Link>
         <Link
           className="text-sm font-medium hover:text-primary transition-colors"
-          href="/pricing"
+          href="#dashboard"
         >
-          Pricing
+          Dashboard
         </Link>
       </nav>
       <div className="ml-4 flex gap-2">

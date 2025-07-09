@@ -58,7 +58,7 @@ function MainContent() {
                   alt="SplitEasy App Preview"
                   className="relative rounded-xl shadow-2xl"
                   height="400"
-                  src="/placeholder.svg?height=400&width=300"
+                  src="/hah.jpg"
                   width="300"
                 />
               </div>
